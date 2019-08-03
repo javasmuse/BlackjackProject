@@ -57,7 +57,7 @@ public class BlackJackTable {
 			
 			one.getHand().clear();
 			bob.getHand().clear();
-			System.out.println(deck.checkDeckSize());
+			System.out.println("Cards left, incase your counting: " + deck.checkDeckSize() + "\n");
 
 			one.getHand().addCard(deck.dealCard());
 			System.out.println(one.toString());
@@ -148,12 +148,12 @@ public class BlackJackTable {
 	public void compareHands() {
 
 		if (bob.getHand().getHandValue() >= one.getHand().getHandValue())
-			System.out.println("\nDealer wins\n with total of " + bob.getHand().getHandValue());
+			System.out.println("\nDealer wins\n with total of " + bob.getHand().getHandValue() + "\n");
 		
 		else if (one.getHand().getHandValue() > bob.getHand().getHandValue())
 			System.out.println("\nYou win! Don't spend it all in one place.\n");
 		
-		System.out.println(bob.toString());
+		System.out.println(bob.toString() + "\n");
 		deal();
 	}
 
