@@ -54,6 +54,10 @@ public class BlackJackTable {
 
 			if (deck.checkDeckSize() < 20 || deck.checkDeckSize() == 52)
 				deck.shuffleCard();
+			
+			one.getHand().clear();
+			bob.getHand().clear();
+			System.out.println(deck.checkDeckSize());
 
 			one.getHand().addCard(deck.dealCard());
 			System.out.println(one.toString());
@@ -90,10 +94,14 @@ public class BlackJackTable {
 	public void hitOrStay() {
 
 		System.out.println("\nYour card total is: " + one.getHand().getHandValue());
-		if (one.getHand().isBust() == true)
-			System.out.println("Busted!");
-		else
-			System.out.println("Interesting cards mate, wanna hit? \n Press 1 to hit or 2 to stay.");
+		 
+		while (one.getHand().isBust() == true) {
+			System.out.println("Busted!\n"); 
+			deal();
+		 }
+			  
+		
+		System.out.println("Interesting cards mate, wanna hit? \n Press 1 to hit or 2 to stay.");
 		int choice = kb.nextInt();
 
 		if (choice == 1)
@@ -114,96 +122,39 @@ public class BlackJackTable {
 	}
 
 	public void standOnDealerPlay() {
-		System.out.println("Dealer's Cards: " + bob.toString());
+		System.out.println("Dealer's Cards: " + bob.toString() + "\n");
+		
+		do { 
+			
 		if (bob.getHand().getHandValue() <= 16)
 			bob.getHand().addCard(deck.dealCard());
+		
+		else if (bob.getHand().getHandValue() >= 22)
+			System.out.println("\nDealer Busts --- You win!\n");
+		
 		else if (bob.getHand().getHandValue() == 21)
 			System.out.println("Dealer wins");
-
+		
 		else if (bob.getHand().getHandValue() >= 17)
-			compareHands();
+		compareHands();
+		
+		} while (bob.getHand().getHandValue() <= 21); 
+		
+		deal(); 
+		
 
 	}
 
 	public void compareHands() {
 
 		if (bob.getHand().getHandValue() >= one.getHand().getHandValue())
-			System.out.println("Dealer wins");
+			System.out.println("\nDealer wins\n with total of " + bob.getHand().getHandValue());
+		
 		else if (one.getHand().getHandValue() > bob.getHand().getHandValue())
-			System.out.println("You win! Don't spend it all in one place.");
+			System.out.println("\nYou win! Don't spend it all in one place.\n");
+		
+		System.out.println(bob.toString());
 		deal();
 	}
 
 }
-
-//		 add players hand up
-//		 check for 21 or bust 
-
-//		System.out.println(deck.checkDeckSize());
-
-//		
-//		 keepPlaying = false; 
-//		 if 21 - 
-//			get dealers hand and compare
-//		 		if dealers had == 21 - push 
-//		 		else if players hand is greater BLACKJACK! 
-//				either case - tie or win - wanna play another hand? 
-//					yes (remove played cards from deck //maybe do while at line 43 return to there if yes and quitting (returning to main if no)) 
-
-//
-//		bob.getHand().addCard(deck.dealCard());
-//	}
-//
-//
-//}
-
-// check deck if remaining number < 20 then shuffle
-// player gets card, show value
-// dealer gets card, hide value
-// player gets card, show value
-// dealer gets card, show value
-// add value and call getHand from BlackJackHand - check for bust or BlackJack
-// for dealer also
-// if blackjack - Yay
-// but if player hand and dealer hand both = black jack, push, at least no money
-// lost -- call dealAgain();
-// ask player hit ?
-// if yes -- add a card
-// if no
-// check dealers cards use rules for dealer hand
-
-//	}
-
-//	    System.out.print("How many cards: ");
-//	    
-//	    try {
-//	      int numCards = sc.nextInt();
-//	      if(numCards > 52) {
-//	        throw new InputMismatchException();
-//	      }
-//	      
-//	      List<Card> hand = new ArrayList<>(numCards);
-//	      int totalValue = 0;
-//	      for(int i = 0; i < numCards; i++) {
-//	        Card c = deck.dealCard();
-//	        totalValue += c.getValue();
-//	        hand.add(c);
-//	      }
-//	      printHandAndValue(hand, totalValue);
-//	    }
-//	    catch (InputMismatchException e) {
-//	      System.out.println("That is not a valid number of cards.");
-//	    }
-//	    finally {
-//	      sc.close();
-//	    }
-//	  }
-
-//	private void printHandAndValue(List<Card> hand, int value) {
-//		for (Card card : hand) {
-//			System.out.println(card);
-//		}
-//		System.out.println("Total value: " + value);
-//	}
-//
-//}
