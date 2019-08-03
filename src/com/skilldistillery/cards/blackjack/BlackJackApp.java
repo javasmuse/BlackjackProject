@@ -8,13 +8,17 @@ public class BlackJackApp {
 	BlackJackTable table = new BlackJackTable(); 
 
 	public static void main(String[] args) {
+		
 		BlackJackApp bja = new BlackJackApp();
+		
 		bja.runMe();
 
 	}
 	
 	public void runMe() {
 		table.welcome();
+		
+		
 		
 	
 		// call to the Table 

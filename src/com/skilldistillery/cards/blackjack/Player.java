@@ -6,13 +6,13 @@ import com.skilldistillery.cards.common.AbstractHand;
 
 public class Player extends Person {
 	private int age; 
-	private AbstractHand hand = new BlackJackHand();
+	private BlackJackHand hand = new BlackJackHand();
 	
 	
-	
-	public Player(String name, int age ) {
+	public Player(String name, int age) {
 		super.getName(); 
 		this.age = age; 
+		this.hand = hand; 
 	}
 	
 	
@@ -20,13 +20,12 @@ public class Player extends Person {
 	}
 
 	
-	
 	public int getAge() {
 		return age;
 	}
 
 
-	public AbstractHand getHand() {
+	public BlackJackHand getHand() {
 		return hand;
 	}
 
@@ -36,7 +35,7 @@ public class Player extends Person {
 	}
 
 
-	public void setHand(AbstractHand hand) {
+	public void setHand(BlackJackHand hand) {
 		this.hand = hand;
 	}
 

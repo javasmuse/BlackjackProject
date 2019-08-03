@@ -1,24 +1,26 @@
 package com.skilldistillery.cards.blackjack;
 
 import com.skilldistillery.cards.common.AbstractHand;
+import com.skilldistillery.cards.common.Card;
 
 public class BlackJackHand extends AbstractHand {
+
 	
 
-	public int getHandValue(int points) { // for loop 
-		
- 		return 0; 
+	public BlackJackHand() {
+		super();
 	}
+
 	
 	public boolean isBlackJack() {
-		 int hand = 0;
+		 int hand = getHandValue();
 		if ( hand  == 21 )
 		  return true; ; 
 		  return false;
 		} 
 	
 	public boolean isBust() {
-		int hand = 0;
+		int hand = getHandValue();
 		if (hand > 21 )
 			return true;
 		return false; 
@@ -26,9 +28,14 @@ public class BlackJackHand extends AbstractHand {
 
 	@Override
 	public int getHandValue() {
-		// TODO Auto-generated method stub
-		return 0;
+		int total = 0;
+		for (Card card : cards) {
+			total += card.getValue();
+		}
+ 		return total; 		
 	}
+
+	
 	
 	
 	
