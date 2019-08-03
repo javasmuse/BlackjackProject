@@ -21,10 +21,13 @@ public abstract class AbstractHand {
 
 	public abstract int getHandValue();
 
+	@Override
 	public String toString() {
-		// TODO fancy display of card in hand
-		return cards.toString();
-
+		return "Card " + cards + " ";
 	}
+//	public String toString() {
+//
+//		// TODO fancy display of card in hand maybe the ASCII Suit w/ number 
+//		return cards.toString();
 
 }
