@@ -5,7 +5,7 @@
 ### Overview
 A project using loops, logic, classes, and creativity to write a Blackjack game in Java code. 
 
-### Technologies Used
+### Technologies Used 
 Git, Eclipse, Java, loops, classes, object orientated programming. 
 
 ### How to Run
